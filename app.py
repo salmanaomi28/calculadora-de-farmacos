@@ -13,7 +13,7 @@ def get_datosD(peso,dosisT):
     return jsonify({"dosis" : dosis})
 
 
-@app.route("/suspension/<string:peso/<string:mg>/<string:dosisT>/<string:ml>")
+@app.route("/suspension/<string:peso>/<string:mg>/<string:dosisT>/<string:ml>")
 def get_DatosM(peso, mg, dosisT, ml):
     peso = float(peso)
     mg = float(mg)
