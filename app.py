@@ -5,32 +5,32 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
-@app.route("/dosis/<string:peso>/<string:dosisTerapeutica>")
-def get_datosD(peso,dosisTerapeutica):
+@app.route("/dosis/<string:peso>/<string:dosisT>")
+def get_datosD(peso,dosisT):
     peso = float(peso)
-    dosisTerapeutica = float(dosisTerapeutica)
-    dosis = dosisTerapeutica * peso
+    dosisT = float(dosisT)
+    dosis = dosisT * peso
     return jsonify({ "dosis" : dosis})
 
 
-@app.route("/suspension/<string:peso>/<string:presentacion>/<string:dosisTerapeutica>/<string:diluyente>")
-    def get_datosM(peso,presentacion,dosisTerapeutica, diluyente):
-    dosisTerapeutica = float(dosisTerapeutica)
-    diluyente = float(diluyente)
+@app.route("/susp/<string:peso>/<string:mg>/<string:dosisT>/<string:ml>")
+    def get_datosM(peso,mg,dosisT, ml):
+    dosisT = float(dosisT)
+    ml = float(ml)
     peso = float(peso)
     dosis = float(dosis)
-    presentacion = float(presentacion)
-    dosis = dosisTerapeutica * peso
-    suspension = dosisTerapeutica * diluyente / presentacion
-    return jsonify({"suspension": suspension})
+    mg = float(mg)
+    dosis = dosisT * peso
+    susp = dosisT * ml / mg
+    return jsonify({"susp": susp})
 
-@app.route("/dosisPordia/<string:dosisTerapeutica>/<string:peso>/<string:horasM>")
-def get_datosM2( peso,dosisTerapeutica, horasM):
+@app.route("/dosisPordia/<string:dosisT>/<string:peso>/<string:horasM>")
+def get_datosM2( peso,dosisT, horasM):
    
-    dosisTerapeutica = float(dosisTerapeutica)
+    dosisT = float(dosisT)
     peso = float(peso)
     horasM = float(horasM)
-    dosis = dosisTerapeutica * peso
+    dosis = dosisT * peso
     cc = 24 / horasM
     dosisPorDia = dosis / cc
     return jsonify({ 
