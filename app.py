@@ -2,7 +2,7 @@ from distutils.log import debug
 from flask import Flask
 from flask import Flask, jsonify
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 
 @app.route("/dosis/<string:peso>/<string:dosisT>")
@@ -38,5 +38,5 @@ def get_dosisDia(dosisT,peso,horasM):
 
 
 
-if _name_ == '__main__':
+if __name__ == '__main__':
     app.run(debug=True, port=4000)
