@@ -26,10 +26,10 @@ def get_DatosM(dato1, mg, dosisT, ml):
 
 
 
-@app.route("/dosisDia/<string:dosisT>/<string:peso>/<string:dato2>/<string:horasM>")
-def get_dosisDia(dosisT,dato2,horasM):
+@app.route("/dosisDia/<string:dosisT>/<string:peso>/<string:horasM>")
+def get_dosisDia(dosisT,peso,horasM):
     dosisT = float(dosisT)
-    peso = float(dato2)
+    peso = float(peso)
     horasM = float(horasM)
     cc = float(0)
     cc = 24 / horasM
