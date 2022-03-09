@@ -1,5 +1,5 @@
-from distutils.log import debug
 from flask import Flask
+from distutils.log import debug
 from flask import Flask, jsonify
 
 app = Flask(__name__)
@@ -22,16 +22,21 @@ def get_datosM(presentacion,diluyente, dosisTerapeutica):
     return jsonify({"suspension": suspension})
 
 @app.route("/dosisPordia/<string:dosisTerapeutica>/<string:peso>/<string:horasM>")
-def get_datosM(cc, peso,dosisTerapeutica, horasM):
-    dosis = float(dosis)
-    cc = float(cc)
+def get_datosM2( peso,dosisTerapeutica, horasM):
+   
     dosisTerapeutica = float(dosisTerapeutica)
     peso = float(peso)
     horasM = float(horasM)
     dosis = dosisTerapeutica * peso
     cc = 24 / horasM
-    dosisPordia = dosis / cc
-    return jsonify({"dosisPorDia": dosisPordia})
+    dosisPorDia = dosis / cc
+    return jsonify({ 
+                     "dosis": dosis,
+                    "cc": cc,
+                    "dosisPorDia":dosisPorDia
+                   }
+                   
+                  )
 
 if __name__ == '_main_':
-    app.run(debug=True, port=6000)
+    app.run(debug=True, port=4000)
