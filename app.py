@@ -41,5 +41,5 @@ def get_datosM2( peso,dosisT, horasM):
                    
                   )
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True, port=4000)
