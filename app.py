@@ -13,11 +13,12 @@ def get_datosD(peso,dosisTerapeutica):
     return jsonify({ "dosis" : dosis})
 
 
-@app.route("/suspension/<string:presentacion>/<string:dosisTerapeutica>/<string:diluyente>")
-def get_datosM(presentacion,diluyente, dosisTerapeutica):
+@app.route("/suspension/<string:peso>/<string:presentacion>/<string:dosisTerapeutica>/<string:diluyente>")
     dosisTerapeutica = float(dosisTerapeutica)
     diluyente = float(diluyente)
+    peso = float(peso)
     presentacion = float(presentacion)
+    dosis = dosisTerapeutica * peso
     suspension = dosisTerapeutica * diluyente / presentacion
     return jsonify({"suspension": suspension})
 
