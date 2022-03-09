@@ -25,21 +25,15 @@ def get_datosD(peso,dosisT):
     return jsonify({"susp": susp})
 
 @app.route("/dosisPordia/<string:dosisT>/<string:peso>/<string:horasM>")
-def get_datosM2( peso,dosisT, horasM):
-   
+def get_datosM2(peso,dosisT, horasM):
+    cc = float(0)
     dosisT = float(dosisT)
     peso = float(peso)
     horasM = float(horasM)
     dosis = dosisT * peso
     cc = 24 / horasM
     dosisPorDia = dosis / cc
-    return jsonify({ 
-                     "dosis": dosis,
-                    "cc": cc,
-                    "dosisPorDia":dosisPorDia
-                   }
-                   
-                  )
+    return jsonify({"dosisPorDia":dosisPorDia})
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000)
