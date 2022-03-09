@@ -33,7 +33,7 @@ def get_dosisDia(dosisT,peso,horasM):
     horasM = float(horasM)
     cc = float(0)
     cc = 24 / horasM
-    dosisDia = dosis / cc
+    dosisDia = dosisT / cc
     return jsonify({"dosisDia" : dosisDia})
 
 
