@@ -17,6 +17,7 @@ def get_datosD(peso,dosisTerapeutica):
     dosisTerapeutica = float(dosisTerapeutica)
     diluyente = float(diluyente)
     peso = float(peso)
+    dosis = float(dosis)
     presentacion = float(presentacion)
     dosis = dosisTerapeutica * peso
     suspension = dosisTerapeutica * diluyente / presentacion
