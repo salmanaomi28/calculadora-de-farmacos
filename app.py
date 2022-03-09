@@ -13,23 +13,23 @@ def get_datosD(peso,dosisT):
     return jsonify({"dosis" : dosis})
 
 
-@app.route("/suspension/<string:peso>/<string:mg>/<string:dosisT>/<string:ml>")
-def get_DatosM(peso, mg, dosisT, ml):
-    peso = float(peso)
+@app.route("/suspension/<string:dato1>/<string:mg>/<string:dosisT>/<string:ml>")
+def get_DatosM(dato1, mg, dosisT, ml):
+    peso1 = float(dato1)
     mg = float(mg)
     dosisT = float(dosisT)
     ml = float(ml)
     dosis = float(0)
-    dosis = dosisT * peso
+    dosis = dosisT * peso1
     suspension = dosis * (ml/mg)
     return jsonify({"suspension" : suspension})
 
 
 
-@app.route("/dosisDia/<string:dosisT>/<string:peso>/<string:peso>/<string:horasM>")
-def get_dosisDia(dosisT,peso,horasM):
+@app.route("/dosisDia/<string:dosisT>/<string:peso>/<string:dato2>/<string:horasM>")
+def get_dosisDia(dosisT,dato2,horasM):
     dosisT = float(dosisT)
-    peso = float(peso)
+    peso = float(dato2)
     horasM = float(horasM)
     cc = float(0)
     cc = 24 / horasM
