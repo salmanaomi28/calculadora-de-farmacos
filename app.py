@@ -14,6 +14,7 @@ def get_datosD(peso,dosisTerapeutica):
 
 
 @app.route("/suspension/<string:peso>/<string:presentacion>/<string:dosisTerapeutica>/<string:diluyente>")
+    def get_datosM(peso,presentacion,dosisTerapeutica, diluyente):
     dosisTerapeutica = float(dosisTerapeutica)
     diluyente = float(diluyente)
     peso = float(peso)
